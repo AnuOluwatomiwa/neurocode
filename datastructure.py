@@ -53,3 +53,41 @@ def display_info(data, choice):
             print(value)
     else:
         print("Invalid choice!")
+
+def main():
+    # Load the .mat files
+    data_s1 = scipy.io.loadmat('dataset/S1.mat')
+    data_s2 = scipy.io.loadmat('dataset/S2.mat')
+
+    files = {'1': data_s1, '2': data_s2}
+    file_names = {'1': 'S1.mat', '2': 'S2.mat'}
+
+    while True:
+        print("\nSelect a file:")
+        print("1. S1.mat")
+        print("2. S2.mat")
+        print("3. Exit")
+
+        file_choice = input("Enter your choice: ")
+        
+        if file_choice in files:
+            data = files[file_choice]
+            keys = list(data.keys())
+            while True:
+                print_menu(keys)
+                try:
+                    option = int(input("Enter your choice: "))
+                except ValueError:
+                    print("Invalid input! Please enter a number.")
+                    continue
+                
+                if option == len(keys) + 1:
+                    break
+                display_info(data, option)
+        elif file_choice == '3':
+            break
+        else:
+            print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
