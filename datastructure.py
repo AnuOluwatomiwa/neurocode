@@ -1,46 +1,4 @@
 import scipy.io
-from tabulate import tabulate
-
-# Load the .mat files
-#data_s1 = scipy.io.loadmat('dataset/S1.mat')
-#data_s2 = scipy.io.loadmat('dataset/S2.mat')
-#
-## Print keys to understand the structure
-#print("Keys in S1.mat:", data_s1.keys())
-#print("Keys in S2.mat:", data_s2.keys())
-#
-##Inspect the 'Info' key
-#info_s1 = data_s1['Info']
-#info_s2 = data_s2['Info']
-#
-#print("Info for S1.mat:\n", info_s1)
-#print("\nInfo for S2.mat:\n",info_s2)
-#
-## Check the structure of 'training_data' and 'test_data'
-#training_data_s1 = data_s1['training_data']
-#test_data_s1 = data_s1['test_data']
-#
-#print("\nShape of training_data in S1.mat:", training_data_s1.shape)
-#print("Shape of test_data in S1.mat:", test_data_s1.shape)
-
-def format_data(value):
-    #   Format the data into a readable string.
-    if isinstance(value, (list, tuple, np.ndarray)):
-        if isinstance(value, np.ndarray) and value.ndim == 1:
-            return "\n".join([str(item) for item in value])
-        elif isinstance(value, np.ndarray) and value.ndim > 1:
-            return "\n".join(["\t".join(map(str, row)) for row in value])
-        elif isinstance(value, dict):
-            table = [[k, str(v)] for k, v in value.items()]
-            return tabulate(table, headers=['Key', 'Value'], tablefmt='grid')
-        else:
-            return "\n".join(map(str, value))
-    elif isinstance(value, dict):
-        table = [[k, str(v)] for k, v in value.items()]
-        return tabulate(table, headers=['Key', 'Value'], tablefmt='grid')
-    else:
-        return str(value)
-
 
 def print_menu(keys):
     # Print the menu with numbered options for each key.
@@ -49,22 +7,25 @@ def print_menu(keys):
         print(f"{i}. {key}")
     print(f"{len(keys) + 1}. Exit")
 
-
 def display_info(data, choice):
-    #   Display the selected key's data in a tabulated format.
+    # Display the selected key's data.
     keys = list(data.keys())
     if 1 <= choice <= len(keys):
         selected_key = keys[choice - 1]
         value = data[selected_key]
         print(f"\nData for '{selected_key}':\n")
         if isinstance(value, (list, tuple, dict)):
-            # Use tabulate for lists or dicts
+            # Handle dict or list/tuple
             if isinstance(value, dict):
-                table = [[k, str(v)] for k, v in value.items()]
-                print(tabulate(table, headers=['Key', 'Value'], tablefmt='grid'))
+                print("Key - Value")
+                print("----------")
+                for k, v in value.items():
+                    print(f"{k}: {v}")
             else:
-                table = [[str(i), str(v)] for i, v in enumerate(value)]
-                print(tabulate(table, headers=['Index', 'Value'], tablefmt='grid'))
+                print("Index - Value")
+                print("-------------")
+                for i, v in enumerate(value):
+                    print(f"{i}: {v}")
         else:
             print(value)
     else:
@@ -76,7 +37,6 @@ def main():
     data_s2 = scipy.io.loadmat('dataset/S2.mat')
 
     files = {'1': data_s1, '2': data_s2}
-    file_names = {'1': 'S1.mat', '2': 'S2.mat'}
 
     while True:
         print("\nSelect a file:")
