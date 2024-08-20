@@ -32,3 +32,24 @@ def print_menu(keys):
     for i, key in enumerate(keys, 1):
         print(f"{i}. {key}")
     print(f"{len(keys) + 1}. Exit")
+
+
+def display_info(data, choice):
+    #   Display the selected key's data in a tabulated format.
+    keys = list(data.keys())
+    if 1 <= choice <= len(keys):
+        selected_key = keys[choice - 1]
+        value = data[selected_key]
+        print(f"\nData for '{selected_key}':\n")
+        if isinstance(value, (list, tuple, dict)):
+            # Use tabulate for lists or dicts
+            if isinstance(value, dict):
+                table = [[k, str(v)] for k, v in value.items()]
+                print(tabulate(table, headers=['Key', 'Value'], tablefmt='grid'))
+            else:
+                table = [[str(i), str(v)] for i, v in enumerate(value)]
+                print(tabulate(table, headers=['Index', 'Value'], tablefmt='grid'))
+        else:
+            print(value)
+    else:
+        print("Invalid choice!")
