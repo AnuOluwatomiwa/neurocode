@@ -23,7 +23,23 @@ from tabulate import tabulate
 #print("\nShape of training_data in S1.mat:", training_data_s1.shape)
 #print("Shape of test_data in S1.mat:", test_data_s1.shape)
 
-
+def format_data(value):
+    #   Format the data into a readable string.
+    if isinstance(value, (list, tuple, np.ndarray)):
+        if isinstance(value, np.ndarray) and value.ndim == 1:
+            return "\n".join([str(item) for item in value])
+        elif isinstance(value, np.ndarray) and value.ndim > 1:
+            return "\n".join(["\t".join(map(str, row)) for row in value])
+        elif isinstance(value, dict):
+            table = [[k, str(v)] for k, v in value.items()]
+            return tabulate(table, headers=['Key', 'Value'], tablefmt='grid')
+        else:
+            return "\n".join(map(str, value))
+    elif isinstance(value, dict):
+        table = [[k, str(v)] for k, v in value.items()]
+        return tabulate(table, headers=['Key', 'Value'], tablefmt='grid')
+    else:
+        return str(value)
 
 
 def print_menu(keys):
