@@ -18,3 +18,6 @@ print("\nInfo for S2.mat:\n",info_s2)
 # Check the structure of 'training_data' and 'test_data'
 training_data_s1 = data_s1['training_data']
 test_data_s1 = data_s1['test_data']
+
+print("\nShape of training_data in S1.mat:", training_data_s1.shape)
+print("Shape of test_data in S1.mat:", test_data_s1.shape)
