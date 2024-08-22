@@ -9,7 +9,7 @@ def print_menu(keys):
 
 def display_info(data, choice):
     # Display the selected key's data.
-    keys = list(data.keys())
+    keys = list(data.keys()) 
     if 1 <= choice <= len(keys):
         selected_key = keys[choice - 1]
         value = data[selected_key]
