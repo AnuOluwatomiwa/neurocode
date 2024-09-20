@@ -1,4 +1,3 @@
-
 # Neurocode
 
 ## Overview
@@ -33,7 +32,7 @@ To get started with Neurocode, follow these steps:
 cd neurocode
 
 
-	3.	Install dependencies v:
+	3.	Install dependencies:
 
 pip install -r requirements.txt
 
@@ -64,4 +63,4 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 
 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
