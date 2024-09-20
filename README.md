@@ -1,39 +1,39 @@
-Neurocode
 
-Overview
+# Neurocode
+
+## Overview
 
 Neurocode is a project that merges neuroscience and programming to develop brain-computer interfaces (BCIs) and analyze neural data. The primary aim is to decode brain signals and explore their applications in healthcare, with a focus on conditions like diffuse intrinsic pontine glioma (DIPG).
 
-Table of Contents
+## Table of Contents
 
-	•	Features
-	•	Installation
-	•	Usage
-	•	Contributing
-	•	License
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Features
+## Features
 
-	•	Brain-Computer Interfaces (BCIs): Develop systems that allow for direct communication between the brain and external devices.
-	•	Neural Data Analysis: Implement algorithms to process and interpret neural signals.
-	•	Real-Time Feedback: Create responsive systems that provide immediate feedback based on brain activity.
-	•	Healthcare Applications: Focus on research that could lead to breakthroughs in conditions like DIPG.
+- **Brain-Computer Interfaces (BCIs)**: Develop systems that allow for direct communication between the brain and external devices.
+- **Neural Data Analysis**: Implement algorithms to process and interpret neural signals.
+- **Real-Time Feedback**: Create responsive systems that provide immediate feedback based on brain activity.
+- **Healthcare Applications**: Focus on research that could lead to breakthroughs in conditions like DIPG.
 
-Installation
+## Installation
 
 To get started with Neurocode, follow these steps:
 
-	1.	Clone the repository:
-
-git clone https://github.com/yourusername/neurocode.git
-
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/AnuOluwatomiwa/neurocode.git
 
 	2.	Navigate to the project directory:
 
 cd neurocode
 
 
-	3.	Install dependencies (if applicable):
+	3.	Install dependencies v:
 
 pip install -r requirements.txt
 
@@ -66,4 +66,4 @@ License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Feel free to modify any sections to better suit your project’s specifics!
+You can copy and paste this directly into your `README.md` file!
