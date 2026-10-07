@@ -1,66 +1,46 @@
-# Neurocode
+# neurocode
 
-## Overview
+Open, on-device tools for paediatric brain tumour imaging, starting with **diffuse midline glioma (DMG/DIPG)**.
 
-Neurocode is a project that merges neuroscience and programming to develop brain-computer interfaces (BCIs) and analyze neural data. The primary aim is to decode brain signals and explore their applications in healthcare, with a focus on conditions like diffuse intrinsic pontine glioma (DIPG).
+> Research software. Outputs are predictions for research use only, not for diagnosis or treatment decisions.
 
-## Table of Contents
+## Status
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+| Version | What | State |
+|---|---|---|
+| `v1-meg` (tag) | MEG decoding experiments on BCI Competition IV, dataset 3 | Archived; base for a future EEG/MEG functional-mapping module |
+| v2 | Paediatric DMG MRI segmentation + viewer, running models on device | Planned (from Oct 2027); setup underway now |
 
-## Features
+## v2 goals
 
-- **Brain-Computer Interfaces (BCIs)**: Develop systems that allow for direct communication between the brain and external devices.
-- **Neural Data Analysis**: Implement algorithms to process and interpret neural signals.
-- **Real-Time Feedback**: Create responsive systems that provide immediate feedback based on brain activity.
-- **Healthcare Applications**: Focus on research that could lead to breakthroughs in conditions like DIPG.
+- **Segment and measure** DMG on MRI (trained on BraTS-PEDs), and compare automated tumour volume with standard 2D RAPNO measurements.
+- **Viewer** for researchers and radiologists: NiiVue on the web, plus a native Mac/iPad app.
+- **On-device inference** with Apple Core AI, so patient scans never leave the machine.
+- Later: maps of contrast leakage (blood–brain barrier opening) and infused-drug spread.
 
-## Installation
+## v1 (archived)
 
-To get started with Neurocode, follow these steps:
+To look at the MEG work:
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/AnuOluwatomiwa/neurocode.git
+```bash
+git checkout v1-meg
+```
 
-	2.	Navigate to the project directory:
+`datastructure.py` and `notebooks/` explore the BCI Competition IV dataset 3 `.mat` files. The data is not in the repo; download it from the [BCI Competition IV page](https://www.bbci.de/competition/iv/) into `dataset/`.
 
+## Setup
+
+```bash
+git clone https://github.com/AnuOluwatomiwa/neurocode.git
 cd neurocode
-
-
-	3.	Install dependencies:
-
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+```
 
+## Research log
 
+What I read, tried and got wrong is in [RESEARCH_LOG.md](RESEARCH_LOG.md).
 
-Usage
+## License
 
-After installation, you can start using the Neurocode project by following these instructions:
-
-	1.	Run the main application:
-
-python main.py
-
-
-	2.	Explore the modules:
-	•	Refer to the documentation within each module for detailed usage instructions.
-	3.	Example usage:
-
-from neurocode import BCI
-bci = BCI()
-bci.start()
-
-
-
-Contributing
-
-Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request. For significant changes, please open an issue first to discuss what you would like to change.
-
-License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT, see [LICENSE](LICENSE).
